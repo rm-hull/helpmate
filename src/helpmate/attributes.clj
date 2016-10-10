@@ -10,13 +10,13 @@
 (defn extract-id [kword]
   (and
    (keyword? kword)
-   (str/starts-with? (name kword) \#)
+   (str/starts-with? (name kword) "#")
    (-> (name kword) (subs 1))))
 
 (defn extract-classes [kword]
   (and
    (keyword? kword)
-   (str/starts-with? (name kword) \.)
+   (str/starts-with? (name kword) ".")
    (-> (name kword) (str/replace \. \space))))
 
 (defn str-trim [& xs]

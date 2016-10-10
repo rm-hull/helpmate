@@ -7,11 +7,6 @@
   (when-not (empty? attrs)
     (str/join (for [[k v] attrs] (str " " (name k) "=\"" v "\"")))))
 
-(defn- expand-children [children]
-  (if (seq? children)
-    (map expand-children children))
-  children)
-
 (def ^:private doctype-declarations
   {:html5 "html"
    :html-4.01-strict "HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\""
@@ -77,7 +72,7 @@
          (if (and self-closing? (empty? children))
            (str "<" tag (expand-attrs attrs) "/>")
            (str "<" tag (expand-attrs attrs) ">"
-                (str/join (flatten (expand-children children)))
+                (str/join (flatten children))
                 "</" tag ">")))))))
 
 (defmacro defelem [tag & [doc-string]]

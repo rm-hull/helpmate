@@ -81,20 +81,3 @@
     (if (:empty-tag opts)
       `(def ~tag ~doc-string (empty-elem ~(name tag)))
       `(def ~tag ~doc-string (elem ~(name tag) ~(not (:non-void opts)))))))
-
-(macroexpand-1 '(defelem ^:deprecated ^:non-void a))
-(macroexpand-1 '(defelem ^:empty-tag br))
-(macroexpand-1 '(defelem a "anchor"))
-
-;(comment
-; (html {:id "main"}
-;       (script {:type "text/javascript" :src "foobar.js"})
-;       (div {:class "side-panel"}
-;            (p
-;             "hello"
-;             (span {:class "highlight"} "world"))
-;            (ul
-;             (for [x (range 1 4)]
-;               (li x))))
-;       (div {:id "main"})))
-

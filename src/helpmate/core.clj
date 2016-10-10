@@ -3,8 +3,8 @@
   (:require
    [clojure.string :as str]))
 
-(defn- expand-attrs [attrs]
-  (when attrs
+(defn expand-attrs [attrs]
+  (when-not (empty? attrs)
     (str/join (for [[k v] attrs] (str " " (name k) "=\"" v "\"")))))
 
 (defn- expand-children [children]

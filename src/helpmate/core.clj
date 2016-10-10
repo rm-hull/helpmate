@@ -71,11 +71,12 @@
    (if (keyword? tag)
      (elem (name tag) self-closing?)
      (fn [& more]
-       (let [[attrs & children] (if (map? (first more)) more (cons nil more))]
+       (let [{:keys [attrs children]} (attrs/agglomerate (flatten more))
+             attrs                    (attrs/expand attrs)]
          (if (and self-closing? (empty? children))
-           (str "<" tag (expand-attrs attrs) "/>")
-           (str "<" tag (expand-attrs attrs) ">"
-                (str/join (flatten children))
+           (str "<" tag attrs "/>")
+           (str "<" tag attrs ">"
+                (str/join children)
                 "</" tag ">")))))))
 
 (defmacro defelem [tag & [doc-string]]

@@ -1,6 +1,7 @@
 (ns helpmate.html
   "Content derived from Mozilla Developer Network and individual contributors,
   under the terms of the Creative Commons Attribution-ShareAlike license (CC-BY-SA), v2.5"
+  (:refer-clojure :exclude [meta map time var])
   (:require
    [helpmate.core :refer [defelem]]))
 
@@ -671,7 +672,7 @@
   <header>, or <nav> element. Only one main element can be used per
   document.")
 
-(defelem map*
+(defelem map
   "The HTML <map> element is used with <area> elements to define an image map
   (a clickable link area).")
 
@@ -718,7 +719,7 @@
   items for indirect commands gain checkboxes or radio buttons when defined
   against elements <input type=\"checkbox\"> and <input type=\"radio\">.)")
 
-(defelem ^:empty-tag meta*
+(defelem ^:empty-tag meta
   "The HTML <meta> element represents any metadata information that cannot be
   represented by one of the other HTML meta-related elements (<base>, <link>,
   <script>, <style> or <title>).

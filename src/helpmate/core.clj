@@ -42,14 +42,20 @@
   [value]
   (str "<!DOCTYPE" (get doctype-declarations value value) ">"))
 
-(defn cdata [value]
+(defn cdata
+  "The CDATASection interface represents a CDATA section that can be used
+  within XML to include extended portions of unescaped text, such that the
+  symbols < and & do not need escaping as they normally do within XML when
+  used as text."
+  [value]
   (str "<![CDATA[" value "]]>"))
 
 (defn comment
-  "The comment tag is used to insert comments in the source code. Comments are
-  not displayed in the browsers. You can use comments to explain your code,
-  which can help you when you edit the source code at a later date. This is
-  especially useful if you have a lot of code."
+  "The Comment interface represents textual notations within markup; although
+  it is generally not visually shown, such comments are available to be read
+  in the source view. Comments are represented in HTML and XML as content
+  between '<!--' and '-->'. In XML, the character sequence '--' cannot be used
+  within a comment."
   [value]
   (str "<!--" value "-->"))
 

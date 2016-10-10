@@ -1,11 +1,8 @@
 (ns helpmate.core
   (:refer-clojure :exclude [comment])
   (:require
-   [clojure.string :as str]))
-
-(defn expand-attrs [attrs]
-  (when-not (empty? attrs)
-    (str/join (for [[k v] attrs] (str " " (name k) "=\"" v "\"")))))
+   [clojure.string :as str]
+   [helpmate.attributes :as attrs]))
 
 (def ^:private doctype-declarations
   {:html5 "html"
@@ -64,7 +61,7 @@
     (empty-elem (name tag))
     (fn
       ([] (str "<" tag ">"))
-      ([attrs] (str "<" tag (expand-attrs attrs) ">")))))
+      ([attrs] (str "<" tag (attrs/expand attrs) ">")))))
 
 (defn elem
   ([tag]

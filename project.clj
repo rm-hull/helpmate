@@ -5,7 +5,7 @@
     :name "The MIT License (MIT)"
     :url "http://opensource.org/licenses/MIT"}
   :dependencies [
-    [rm-hull/jasentaa "0.2.3"]]
+    [org.flatland/useful "0.11.5"]]
   :scm {:url "git@github.com:rm-hull/helpmate.git"}
   :vcs :git
   :source-paths ["src"]

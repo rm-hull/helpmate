@@ -884,3 +884,309 @@
       </q>.
     </p>")
 
+(defelem rp
+  "The HTML <rp> element is used to provide fall-back parenthesis for browsers
+  non-supporting ruby annotations. Ruby annotations are for showing
+  pronunciation of East Asian characters, like using Japanese furigana or
+  Taiwainese bopomofo characters. The <rp> element is used in the case of lack
+  of <ruby> element support its content has what should be displayed in order
+  to indicate the presence of a ruby annotation, usually parentheses.")
+
+(defelem rt
+  "The HTML <rt> Element embraces pronunciation of characters presented in a
+  ruby annotations, which are used to describe the pronunciation of East Asian
+  characters. This element is always used inside a <ruby> element.")
+
+(defelem rtc
+  "The HTML <rtc> Element embraces semantic annotations of characters presented
+  in a ruby of <rb> elements used inside of <ruby> element. <rb> elements can
+  have both pronunciation (<rt>) and semantic (<rtc>) annotations.")
+
+(defelem ruby
+  "The HTML <ruby> Element represents a ruby annotation. Ruby annotations are
+  for showing pronunciation of East Asian characters. Example:
+
+    <ruby>
+      漢 <rp>(</rp><rt>Kan</rt><rp>)</rp>
+      字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+    </ruby>")
+
+(defelem s
+  "The HTML Strikethrough Element (<s>) renders text with a strikethrough, or a
+  line through it. Use the <s> element to represent things that are no longer
+  relevant or no longer accurate. However, <s> is not appropriate when
+  indicating document edits; for that, use the <del> and <ins> elements, as
+  appropriate.")
+
+(defelem samp
+  "The HTML <samp> element is an element intended to identify sample output
+  from a computer program. It is usually displayed in the browser's default
+  monotype font (such as Lucida Console).")
+
+(defelem ^:non-void script
+  "The HTML Script Element (<script>) is used to embed or reference an
+  executable script within an HTML or XHTML document. Scripts without async or
+  defer attributes, as well as inline scripts, are fetched and executed
+  immediately, before the browser continues to parse the page.")
+
+(defelem section
+  "The HTML <section> element represents a generic section of a document, i.e.,
+  a thematic grouping of content, typically with a heading. Each <section>
+  should be identified, typically by including a heading (<h1>-<h6> element)
+  as a child of the <section> element.
+
+    * If it makes sense to separately syndicate the content of a <section>
+      element, use an <article> element instead.
+
+    * Do not use the <section> element as a generic container; this is what
+      <div> is for, especially when the sectioning is only for styling
+      purposes. A rule of thumb is that a section should logically appear
+      in the outline of a document.")
+
+(defelem select
+  "The HTML select (<select>) element represents a control that presents a menu
+  of options. The options within the menu are represented by <option>
+  elements, which can be grouped by <optgroup> elements. Options can be
+  pre-selected for the user.")
+
+(defelem ^:experimental shadow
+  "The HTML <shadow> element is used as a shadow DOM insertion point. You might
+  use it if you have created multiple shadow roots under a shadow host. It is
+  not useful in ordinary HTML. It is used with Web Components.")
+
+(defelem small
+  "The HTML Small Element (<small>) makes the text font size one size smaller
+  (for example, from large to medium, or from small to x-small) down to the
+  browser's minimum font size.  In HTML5, this element is repurposed to
+  represent side-comments and small print, including copyright and legal text,
+  independent of its styled presentation.")
+
+(defelem source
+  "The HTML <source> element specifies multiple media resources for either the
+  <picture>, the <audio> or the <video> element. It is an empty element. It is
+  commonly used to serve the same media content in multiple formats supported
+  by different browsers. Example:
+
+    <video controls>
+      <source src=\"foo.webm\" type=\"video/webm\">
+      <source src=\"foo.ogg\" type=\"video/ogg\">
+      <source src=\"foo.mov\" type=\"video/quicktime\">
+      I'm sorry; your browser doesn't support HTML5 video.
+    </video>")
+
+(defelem span
+  "The HTML <span> element is a generic inline container for phrasing content,
+  which does not inherently represent anything. It can be used to group
+  elements for styling purposes (using the class or id attributes), or because
+  they share attribute values, such as lang. It should be used only when no
+  other semantic element is appropriate. <span> is very much like a <div>
+  element, but <div> is a block-level element whereas a <span> is an inline
+  element.")
+
+(defelem strong
+  "The HTML Strong Element (<strong>) gives text strong importance, and is
+  typically displayed in bold.
+
+  BOLD vs. STRONG
+  It is often confusing to new developers why there are so many ways to express
+  the same thing on a rendered website. Bold and Strong are perhaps one of the
+  most common. Why use <strong></strong> vs <b></b>? You have to type a whole
+  lot more with strong and it produces the exact same result, right?
+
+  Perhaps not; strong is a logical state, and bold is a physical state. Logical
+  states separate presentation from the content, and by doing so allow for it
+  to be expressed in many different ways. Perhaps instead of rendering some
+  text as bold you want to render it red, or a different size, or underlined,
+  or whatever. It makes more sense to change the presentational properties of
+  strong than it does bold. This is because bold is a physical state; there is
+  no separation of presentation and content, and making bold do anything other
+  than bold text would be confusing and illogical.
+
+  It is important to note that <b></b> does have other uses, when one wants to
+  draw attention without increasing importance.
+
+  EMPHASIS vs. STRONG
+  While in HTML4, Strong simply indicated a stronger emphasis, in HTML5, the
+  element is described as representing \"strong importance for its contents.\"
+  This is an important distinction to make. While Emphasis is used to change
+  the meaning of a sentence (\"I /love/ carrots\" vs. \"I love /carrots/\"),
+  Strong is used to give portions of a sentence added importance (e.g.,
+  \"*Warning!*  This is *very dangerous*.\") Both Strong and Emphasis can be
+  nested to increase the relative degree of importance or stress emphasis,
+  respectively.")
+
+(defelem style
+  "The HTML <style> element contains style information for a document, or part
+  of a document. By default, the style instructions written inside that
+  element are expected to be CSS.")
+
+(defelem sub
+  "The HTML Subscript Element (<sub>) defines a span of text that should be
+  displayed, for typographic reasons, lower, and often smaller, than the main
+  span of text.
+
+    * This element should be used for typographical reasons only, i.e.
+      changing the position of the text changing its meaning like in
+      mathematical (like t2, though the use of a MathML formula should
+      be considered) or chemical formulas (like H2O).
+
+    * This element must not be used for styling purpose like the styling
+      of the product name Latex. In that case CSS style should be used:
+      the vertical-align property with the sub value will achieve the same
+      effect.")
+
+(defelem summary
+  "The HTML summary element (<summary>) is used as a summary, caption, or
+  legend for the content of a <details> element. Note: (1) If the <summary>
+  element is omitted, the heading \"details\" will be used. (2) The default
+  style for <summary> is display:list-item per HTML standard. If the style is
+  being changed to display:block, the disclosure triangle will be dismissed,
+  which is expected.")
+
+(defelem sup
+  "The HTML Superscript Element (<sup>) defines a span of text that should be
+  displayed, for typographic reasons, higher, and often smaller, than the main
+  span of text.
+
+    * This element should be used for typographical reasons only, i.e.
+      changing the position of the text changing its meaning like in
+      mathematical (like f4, though the use of a MathML formula should be
+      considered) or in French abbreviations (like Mlle, Mme or Cie).
+
+    * This element must not be used for styling purpose like the styling of
+      the product name Latex. In that case CSS style should be used: the
+      vertical-align property with the super value will achieve the same
+      effect.")
+
+(defelem table
+  "The HTML Table Element (<table>) represents tabular data - i.e., information
+  expressed via a two dimensional data table. Note: Prior to the creation of
+  CSS, HTML <table> elements were often used as a method for page layout. This
+  usage has been discouraged since HTML 4. However, HTML emails are an
+  exception where tables are still commonly used for layout purposes. The
+  reason for this is poor CSS support in popular email clients.")
+
+(defelem tbody
+  "The HTML Table Body Element (<tbody>) defines one or more <tr> element
+  data-rows to be the body of its parent <table> element (as long as no <tr>
+  elements are immediate children of that table element.) In conjunction with
+  a preceding <thead> and/or <tfoot> element, <tbody> provides additional
+  semantic information for devices such as printers and displays. Of the
+  parent table's child elements, <tbody> represents the content which, when
+  longer than a page, will most likely differ for each page printed; while the
+  content of <thead> and <tfoot> will be the same or similar for each page
+  printed. For displays, <tbody> will enable separate scrolling of the
+  <thead>, <tfoot>, and <caption> elements of the same parent <table> element.
+  Note that unlike the <thead>, <tfoot>, and <caption> elements however,
+  multiple <tbody> elements are permitted (if consecutive), allowing the
+  data-rows in long tables to be divided into different sections, each
+  separately formatted as needed.")
+
+(defelem td
+  "The Table cell HTML element (<td>) defines a cell of a table that contains
+  data. It participates in the table model.")
+
+(defelem template
+  "The HTML template element <template> is a mechanism for holding client-side
+  content that is not to be rendered when a page is loaded but may
+  subsequently be instantiated during runtime using JavaScript. Think of a
+  template as a content fragment that is being stored for subsequent use in
+  the document. While the parser does process the contents of the <template>
+  element while loading the page, it does so only to ensure that those
+  contents are valid; the element's contents are not rendered, however.")
+
+(defelem textarea
+  "The HTML <textarea> element represents a multi-line plain-text editing
+  control. A textarea has intrinsic dimensions, like a raster image. Example:
+
+    <textarea name=\"textarea\" rows=\"10\" cols=\"50\">
+      Write something here
+   </textarea>")
+
+(defelem tfoot
+  "The HTML Table Foot Element (<tfoot>) defines a set of rows summarizing the
+  columns of the table.")
+
+(defelem th
+  "The HTML element table header cell <th> defines a cell as header of a group
+  of table cells. The exact nature of this group is defined by the scope and
+  headers attributes.")
+
+(defelem thead
+  "The HTML Table Head Element (<thead>) defines a set of rows defining the
+  head of the columns of the table.")
+
+(defelem time
+  "The HTML <time> element represents either a time on a 24-hour clock or a
+  precise date in the Gregorian calendar (with optional time and timezone
+  information). This element is intended to be used presenting dates and times
+  in a machine readable format. This can be helpful for user agents to offer
+  any event scheduling for user's calendar. Note: This element is not
+  appropriate for instances where a specific date cannot be calculated, nor
+  should it be used for dates prior to the introduction to the Gregorian
+  calendar (due to complications with calculating those dates). Example:
+
+    <p>
+      The concert took place on
+      <time datetime=\"2001-05-15T19:00\">May 15</time>.
+    </p>")
+
+(defelem ^:non-void title
+  "The HTML <title> element defines the title of the document, shown in a
+  browser's title bar or on the page's tab. It can only contain text, and any
+  contained tags are ignored.")
+
+(defelem tr
+  "The HTML element table row <tr> defines a row of cells in a table. Those can
+  be a mix of <td> and <th> elements.")
+
+(defelem track
+  "The HTML <track> element is used as a child of the media elements—<audio>
+  and <video>. It lets you specify timed text tracks (or time-based data), for
+  example to automatically handle subtitles. The tracks are formatted in
+  WebVTT format (.vtt files) — Web Video Text Tracks. The type of data that
+  track adds to the media is set in the kind attribute, which can take values
+  of subtitles, captions, descriptions, chapters or metadata. The element
+  points to a source file containing timed text that the browser exposes when
+  the user requests additional data. A media element cannot have more than one
+  track with the same kind, srclang, and label.")
+
+(defelem u
+  "The HTML Underline Element (<u>) renders text with an underline, a line
+  under the baseline of its content. In HTML5, this element represents a span
+  of text with an unarticulated, though explicitly rendered, non-textual
+  annotation, such as labeling the text as being a proper name in Chinese text
+  (a Chinese proper name mark), or labeling the text as being misspelled.
+  Note: As with all purely styling elements, <u> has been deprecated in HTML 4
+  and XHTML 1, but it has been re-introduced in HTML5 with other semantics. If
+  you want to underline text in a non-semantic manner, you should use a <span>
+  element, or another semantically appropriate element, and style it with the
+  CSS text-decoration property, with the underline value.")
+
+(defelem ul
+  "The HTML <ul> element (or HTML Unordered List Element) represents an
+  unordered list of items, namely a collection of items that do not have a
+  numerical ordering, and their order in the list is meaningless. Typically,
+  unordered-list items are displayed with a bullet, which can be of several
+  forms, like a dot, a circle or a squared. The bullet style is not defined in
+  the HTML description of the page, but in its associated CSS, using the
+  list-style-type property.
+
+  There is no limitation to the depth and imbrication of lists defined with the
+  <ol> and <ul> elements.
+
+  Note: The <ol> and <ul> elements both represent a list of items. They differ
+  in that, with the <ol> element, the order is meaningful. As a rule of thumb
+  to determine which one to use, try changing the order of the list items; if
+  the meaning is changed, the <ol> element should be used, otherwise you can
+  use <ul>.")
+
+(defelem var
+  "The HTML Variable Element (<var>) represents a variable in a mathematical
+  expression or a programming context.")
+
+(defelem video
+  "Use the  HTML <video> element to embed video content in a document. The
+  video element contains one or more video sources. To specify a video source,
+  use either the src attribute or the <source> element; the browser will
+  choose the most suitable one.")

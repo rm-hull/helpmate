@@ -32,7 +32,7 @@
 
   ([tag self-closing? empty-tag?]
    (if (keyword? tag)
-     (elem (name tag) self-closing?)
+     (elem (name tag) self-closing? empty-tag?)
      (fn [& more]
        (let [{:keys [attrs children]} (attrs/agglomerate (flatten more))
              attrs                    (attrs/expand attrs)

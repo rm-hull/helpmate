@@ -581,6 +581,13 @@
   the tags are omitted in the markup. This behavior cannot be guaranteed in
   ancient browsers.")
 
+(defelem h1)
+(defelem h2)
+(defelem h3)
+(defelem h4)
+(defelem h5)
+(defelem h6)
+
 (defelem header
   "The HTML <header> element represents a group of introductory or navigational
   aids. It may contain some heading elements but also other elements like a

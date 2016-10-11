@@ -54,7 +54,7 @@
   between '<!--' and '-->'. In XML, the character sequence '--' cannot be used
   within a comment."
   [value]
-  (str "<!--" value "-->"))
+  (str "<!-- " value " -->"))
 
 (defn empty-elem [tag]
   (if (keyword? tag)

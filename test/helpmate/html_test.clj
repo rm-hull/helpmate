@@ -21,7 +21,7 @@
 ;; SOFTWARE.
 
 (ns helpmate.html-test
-  (:refer-clojure :exclude [comment])
+  (:refer-clojure :exclude [comment meta map time])
   (:require
    [clojure.test :refer :all]
    [helpmate.core :refer :all]

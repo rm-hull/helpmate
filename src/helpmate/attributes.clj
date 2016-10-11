@@ -19,24 +19,39 @@
    (str/starts-with? (name kword) ".")
    (-> (name kword) (str/replace \. \space))))
 
-(defn str-trim [& xs]
+(defn- str-trim [& xs]
   (str/trim (apply str xs)))
 
+(defn- collator [acc val]
+  (cond-let
+   [kw (:kw acc)]
+   (if (or (string? val) (number? val) (nil? val))
+     (->
+      acc
+      (dissoc :kw)
+      (assoc-in [:attrs kw] val))
+     (throw (IllegalArgumentException.
+             (str  "Bare attribute '" kw "' expects following arg to be nil, string or number only"))))
+
+   [id (extract-id val)]
+   (assoc-in acc [:attrs :id] id)
+
+   [classes (extract-classes val)]
+   (update-in acc [:attrs :class] str-trim classes)
+
+   [attrs (and (map? val) val)]
+   (update-in acc [:attrs] merge attrs)
+
+   [kw (and (keyword? val) val)]
+   (assoc acc :kw kw)
+
+   :else
+   (update-in acc [:children] concat [val])))
+
 (defn agglomerate [coll]
-  (reduce
-   (fn [acc val]
-     (cond-let
-      [id (extract-id val)]
-      (assoc-in acc [:attrs :id] id)
-
-      [classes (extract-classes val)]
-      (update-in acc [:attrs :class] str-trim classes)
-
-      [attrs (and (map? val) val)]
-      (update-in acc [:attrs] merge attrs)
-
-      :else
-      (update-in acc [:children] concat [val])))
-   {}
-   coll))
+  (let [res (reduce collator {} coll)]
+    (if-let [kw (:kw res)]
+      (throw (IllegalArgumentException.
+              (str "Bare attribute '" kw "' has no value")))
+      res)))
 

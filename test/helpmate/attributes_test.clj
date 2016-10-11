@@ -46,4 +46,14 @@
   (is (= {:attrs {:class "bob chuck"}}
          (attrs/agglomerate [:.alice {:class "bob chuck"}])))
   (is (= {:attrs {:class "alice" :data-index 3}}
-         (attrs/agglomerate [:.alice {:data-index 3}]))))
+         (attrs/agglomerate [:.alice {:data-index 3}])))
+  (is (= {:attrs {:width 120 :height 130 :viewBox "0 0 120 120"}}
+         (attrs/agglomerate [:width 120 :height 130 :viewBox "0 0 120 120"])))
+  (is (= {:attrs {:width 120 :height 130} :children ["viewBox" "0 0 120 120"]}
+         (attrs/agglomerate [:width 120 :height 130 "viewBox" "0 0 120 120"])))
+  (is (= {:attrs {:cx "" :cy nil}}
+         (attrs/agglomerate [:cx "" :cy nil])))
+  (is (thrown? IllegalArgumentException
+               (attrs/agglomerate [:width 120 :height [200 300]])))
+  (is (thrown? IllegalArgumentException
+               (attrs/agglomerate [:width 120 :height]))))

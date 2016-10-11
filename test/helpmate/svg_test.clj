@@ -23,7 +23,8 @@
 (ns helpmate.svg-test
   (:refer-clojure :exclude [comment])
   (:require
-   [helpmate.core :refer [defelem comment]]))
+   [helpmate.core :refer [defelem]]
+   [helpmate.sgml :refer [comment]]))
 
 (defelem svg)
 (defelem path)

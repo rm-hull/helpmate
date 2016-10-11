@@ -35,7 +35,7 @@
 
 (spit
  "doc/example.svg"
- (svg {:viewBox "0 0 95 50" :xmlns "http://www.w3.org/20000/svg"}
+ (svg {:viewBox "0 0 95 50" :xmlns "http://www.w3.org/2000/svg"}
       (g {:stroke "green" :fill "white" :stroke-width 5}
          (circle {:cx 25 :cy 25 :r 15})
          (circle {:cx 40 :cy 25 :r 15})

@@ -30,21 +30,27 @@
   ([tag]
    (elem tag true false))
 
-  ([tag self-closing?]
+  ([tag self-closing? empty-tag?]
    (if (keyword? tag)
      (elem (name tag) self-closing?)
      (fn [& more]
        (let [{:keys [attrs children]} (attrs/agglomerate (flatten more))
-             attrs                    (attrs/expand attrs)]
-         (if (and self-closing? (empty? children))
+             attrs                    (attrs/expand attrs)
+             no-children?             (empty? children)]
+
+         (cond
+           empty-tag?
+           (if no-children?
+             (str "<" tag attrs ">")
+             (throw (IllegalArgumentException. (str "Element '" tag "' cannot accept children"))))
+
+           (and self-closing? no-children?)
            (str "<" tag attrs "/>")
-           (str "<" tag attrs ">"
-                (str/join children)
-                "</" tag ">")))))))
+
+           :else
+           (str "<" tag attrs ">" (str/join children) "</" tag ">")))))))
 
 (defmacro defelem [tag & [doc-string]]
   (let [opts (meta tag)
         doc-string (or doc-string "")]
-    (if (:empty-tag opts)
-      `(def ~tag ~doc-string (empty-elem ~(name tag)))
-      `(def ~tag ~doc-string (elem ~(name tag) ~(not (:non-void opts)))))))
+    `(def ~tag ~doc-string (elem ~(name tag) ~(not (:non-void opts)) ~(:empty-tag opts)))))

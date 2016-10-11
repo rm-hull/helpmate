@@ -21,8 +21,25 @@
 ;; SOFTWARE.
 
 (ns helpmate.core-test
-  (:refer-clojure :exclude [comment])
   (:require
    [clojure.test :refer :all]
    [helpmate.core :refer :all]))
 
+(deftest check-elem
+  (let [a (elem :a)
+        b (elem :b true false)
+        c (elem :c false true)
+        d (elem :d false false)]
+    (is (= "<a/>" (a)))
+    (is (= "<b data-idx=\"3\"/>" (b :data-idx 3)))
+    (is (= "<a><b/></a>" (a (b))))
+    (is (= "<c>" (c)))
+    (is (thrown? IllegalArgumentException (c (d))))
+    (is (= "<d></d>" (d)))))
+
+(defelem e1 "some docstring")
+(defelem e2)
+
+;(deftest check-docstring
+;  (is (= "some docstring" (:documentation (meta e1))))
+;  (is (= "" (:documentation (meta e2)))))

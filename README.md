@@ -10,15 +10,19 @@ HelpMate is a Clojure library for templating/emitting SGML-like content. It
 uses S-Expressions to represent elements, and maps to represent an element's
 attributes. HelpMate is a strained portmanteau of _Helpful HTML template_.
 
-All the current [HTML](https://developer.mozilla.org/en/docs/Web/HTML/Element)
-and [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) elements
+All the current [HTML](https://developer.mozilla.org/en/docs/Web/HTML/Element) elements
 are represented with doc-strings scraped from Mozilla Developer Network, the
 content of which is available under the terms of the [Creative Commons
 Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA), v2.5.
 
+Planned additional definitions include
+
+  * [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element)
+  * [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML/Element)
+
 Custom elements can be created by way of the `defelem` macro: this allows
-arbitrary XML tags to be represented in regular Clojure code, intersperced
-with forms like `map` and `for`, making templating more convenient:
+arbitrary SGML tags to be represented in regular Clojure code, intersperced
+with forms like `map` and `for`, making templating much more convenient:
 
 ```clojure
 (ul
@@ -42,7 +46,167 @@ See [www.destructuring-bind.org/helpmate](http://www.destructuring-bind.org/help
 
 ## Basic Usage
 
-> TODO
+There is a predefined library of all (current) HTML elements complete with
+doc-strings:
+
+```clojure
+(use 'helpmate.html)
+
+(div
+  (p "Hello"
+     (strong "world")))
+;=> <div><p>Hello <strong>world</strong></p></div>
+```
+
+Elements can be arbitrarily nested, and can be combined into normal Clojure code.
+Some elements have certain behaviour, for example `(div)` expands into `<div></div>`,
+whereas `(br)` expands into `<br>`. Most other empty tags will self-close, eg. `(p)`
+expands into `<p/>`.
+
+### Specifying attributes
+
+Attributes can be supplied as a map of key/value pairs:
+
+```clojure
+(a {:id "puppies" :class "flush--right" :target "_blank" :href "/puppies.html"}
+  (img {:src "/img/puppies.png"}))
+;=> <a id="puppies" class="flush--right" target="_blank" href="/puppies.html"><img src="/img/puppies.png"></a>
+```
+
+Alternatively, the braces can be omitted, as long as there are pairs of keys
+and values (and in which case, the keys _must_ be Clojure keywords and the
+valeus _must_ be string, number or nil):
+
+```cloverage
+(div :id "main" :data-target "#nav"
+  (h2 :class "large editable-field inactive" "Dashboard"))
+;=> <div id="main" data-target="#nav"><h2 class="large editable-field inactive">Dashboard</h2></div>
+```
+
+`:id` and `:class` values can be shortened even further, as below, where a
+Clojure keyword starting with an octothorpe (`#`) is treated as an id, whereas a
+keyword starting with dot (`.`) is treated as a class. Keywords with embedded dots
+are treated as multiple classes.
+
+```cloverage
+(div :#main :data-target "#nav"
+  (h2 :.large.editable-field.inactive" "Dashboard"))
+;=> <div id="main" data-target="#nav"><h2 class="large editable-field inactive">Dashboard</h2></div>
+```
+
+### Creating custom elements
+
+The `defelem` macro can be used to create element definitions. The simplest
+form is:
+
+```clojure
+(defelem book)
+(defelem author)
+
+(author :first-name "Barry" :surname "Fungus"
+  (book :year 1999 "One hundred ways to kill mice")
+  (book :year 2012 "The Dummys guide to Sensible Eating Habits"))
+;=>
+```
+
+after formatting, gives:
+
+```xml
+<author first-name="Barry" surname="Fungus">
+  <book year="1999">One hundred ways to kill mice</book>
+  <book year="2012">The Dummys guide to Sensible Eating Habits</book>
+</author>
+```
+
+Of course, modelling the data structure with elements or attributes is a matter
+of taste; but with HelpMate, you can arbitrarity make that decision.
+
+`defelem` can also take an optional doc-string:
+
+```clojure
+(defelem publisher
+  "A company or person that prepares and issues books, journals, or music for
+  sale. Valid attributes: name, publisher-code, Valid child elements: author.")
+;=> -------------------------
+;=> helpmate.html-test/publisher
+;=>  A company or person that prepares and issues books, journals, or music for
+;=>  sale. Valid attributes: name, publisher-code, Valid child elements: author.
+```
+
+Meta-data is also respected, and use of `^:deprecated` is encouraged where
+appropriate (and actively used within the `helpmate.html` namespace). Other
+valid meta-data flags are:
+
+ * `^:non-void` - denotes that the element _must_ have an end-tag, such as
+   `<div>` or `<script>` for example.
+ * `^:empty-tag` - signals that the element is expected to have no child
+   elements (and will throw an exception if evaluated with children), such
+   as `<img>` or `<br>` elements.
+
+### XML Namespaces
+
+Namespaces (both in element and attributes) are supported:
+
+```clojure
+(defelem ^:empty-tag foo:bar)
+
+(foo:bar :xmlns:foo "http://example.org/rosé")
+;=> <foo:bar xmlns:foo="http://example.org/rosé">
+```
+
+### Examples
+
+Shortly, the SVG tags will be defined much like the HTML elements, but in the
+meantime:
+
+```clojure
+(defelem svg)
+(defelem path)
+(defelem g)
+(defelem circle)
+
+(svg {:viewBox "0 0 95 50" :xmlns "http://www.w3.org/2000/svg"}
+     (g {:stroke "green" :fill "white" :stroke-width 5}
+        (circle {:cx 25 :cy 25 :r 15})
+        (circle {:cx 40 :cy 25 :r 15})
+        (circle {:cx 55 :cy 25 :r 15})
+        (circle {:cx 70 :cy 25 :r 15}))))
+```
+
+produces:
+
+![example-SVG](doc/example.svg)
+
+And another more substantial example:
+
+```
+(defelem animateMotion)
+(defelem mpath)
+
+(svg :width 120 :height 120 :viewBox "0 0 120 120"
+     :xmlns "http://www.w3.org/2000/svg" :version "1.1"
+     :xmlns:xlink "http://www.w3.org/1999/xlink"
+
+     (comment "Draw the outline of the motion path in grey, along
+              with 2 small circles at key points")
+
+     (path :d "M10,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 10,110"
+           :stroke "lightgrey" :stroke-width "2"
+           :fill "none" :id "theMotionPath")
+     (circle :cx 10 :cy 110 :r 3 :fill "lightgrey")
+     (circle :cx 110 :cy 10 :r 3 :fill "lightgrey")
+
+     (comment "Red circle which will be moved along the motion path.")
+     (circle :cx "" :cy "" :r 5 :fill "red"
+
+             (comment "Define the motion path animation")
+             (animateMotion :dur "6s" :repeatCount "indefinite"
+                            (mpath :xlink:href "#theMotionPath")))))
+```
+
+![animate-SVG](doc/animate.svg)
+
+
 
 ## References
 
@@ -51,11 +215,11 @@ See [www.destructuring-bind.org/helpmate](http://www.destructuring-bind.org/help
 
 ## Attribution
 
-* Docstring content scraped from Mozilla Developer Network, the
-  content of which is available under the terms of the [Creative Commons
-  Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA), v2.5.
-
-* Examples / inspiration from https://github.com/weavejester/hiccup.
+  * Docstring content scraped from Mozilla Developer Network, the
+    content of which is available under the terms of the [Creative Commons
+    Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA), v2.5.
+  * Code examples / inspiration from https://github.com/weavejester/hiccup.
+  * SVG examples transcribed from Mozilla Developer Network
 
 ## License
 

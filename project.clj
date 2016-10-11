@@ -1,5 +1,5 @@
 (defproject rm-hull/helpmate "0.1.0"
-  :description "A Clojure library for emitting HTML (and SVG,XML) fragments"
+  :description "A Clojure library for emitting SGML (HTML,SVG,XML) fragments"
   :url "https://github.com/rm-hull/helpmate"
   :license {
     :name "The MIT License (MIT)"

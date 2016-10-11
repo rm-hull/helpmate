@@ -25,6 +25,9 @@ arbitrary SGML tags to be represented in regular Clojure code, intersperced
 with forms like `map` and `for`, making templating much more convenient:
 
 ```clojure
+(defelem ul)
+(defelem li)
+
 (ul
   (for [x (range 1 4)]
     (li x)))
@@ -57,11 +60,13 @@ doc-strings:
      (strong "world")))
 ;=> <div><p>Hello <strong>world</strong></p></div>
 ```
+Convention dictates that attributes are specified first, then children. Child elements
+may be given in SEQable collection, or as varargs, and can be arbitrarily nested; thus,
+they can be combined into normal Clojure code, as per the opening example.
 
-Elements can be arbitrarily nested, and can be combined into normal Clojure code.
 Some elements have certain behaviour, for example `(div)` expands into `<div></div>`,
 whereas `(br)` expands into `<br>`. Most other empty tags will self-close, eg. `(p)`
-expands into `<p/>`.
+expands into `<p/>` - these are specified with meta-data when the element was defined.
 
 ### Specifying attributes
 
@@ -77,7 +82,7 @@ Alternatively, the braces can be omitted, as long as there are pairs of keys
 and values (and in which case, the keys _must_ be Clojure keywords and the
 valeus _must_ be string, number or nil):
 
-```cloverage
+```clojure
 (div :id "main" :data-target "#nav"
   (h2 :class "large editable-field inactive" "Dashboard"))
 ;=> <div id="main" data-target="#nav"><h2 class="large editable-field inactive">Dashboard</h2></div>
@@ -88,9 +93,9 @@ Clojure keyword starting with an octothorpe (`#`) is treated as an id, whereas a
 keyword starting with dot (`.`) is treated as a class. Keywords with embedded dots
 are treated as multiple classes.
 
-```cloverage
+```clojure
 (div :#main :data-target "#nav"
-  (h2 :.large.editable-field.inactive" "Dashboard"))
+  (h2 :.large.editable-field.inactive "Dashboard"))
 ;=> <div id="main" data-target="#nav"><h2 class="large editable-field inactive">Dashboard</h2></div>
 ```
 
@@ -106,7 +111,6 @@ form is:
 (author :first-name "Barry" :surname "Fungus"
   (book :year 1999 "One hundred ways to kill mice")
   (book :year 2012 "The Dummys guide to Sensible Eating Habits"))
-;=>
 ```
 
 after formatting, gives:
@@ -127,6 +131,8 @@ of taste; but with HelpMate, you can arbitrarity make that decision.
 (defelem publisher
   "A company or person that prepares and issues books, journals, or music for
   sale. Valid attributes: name, publisher-code, Valid child elements: author.")
+
+(clojure.repl/doc publisher)
 ;=> -------------------------
 ;=> helpmate.html-test/publisher
 ;=>  A company or person that prepares and issues books, journals, or music for
@@ -175,11 +181,11 @@ meantime:
 
 produces:
 
-![example-SVG](doc/example.svg)
+![example-SVG](https://rawgithub.com/rm-hull/helpmate/master/doc/example.svg)
 
 And another more substantial example:
 
-```
+```clojure
 (defelem animateMotion)
 (defelem mpath)
 
@@ -204,7 +210,7 @@ And another more substantial example:
                             (mpath :xlink:href "#theMotionPath")))))
 ```
 
-![animate-SVG](doc/animate.svg)
+![animate-SVG](https://rawgithub.com/rm-hull/helpmate/master/doc/animate.svg)
 
 
 

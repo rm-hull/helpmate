@@ -372,7 +372,6 @@
   "The <hkern> SVG element allows to fine-tweak the horizontal distance between
   two glyphs. This process is known as kerning.")
 
-
 (defelem image
   "The <image> SVG element allows a raster image to be included in an SVG
   document.")
@@ -557,7 +556,6 @@
       <rect fill=\"url(#MyGradient)\" stroke=\"black\" stroke-width=\"1\"
             x=\"10\" y=\"10\" width=\"60\" height=\"20\"/>
     </svg>")
-
 
 (defelem svg
   "The svg element can be used to embed an SVG fragment inside the current

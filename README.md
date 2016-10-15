@@ -38,7 +38,7 @@ with forms like `map` and `for`, making templating much more convenient:
 
 ## Install
 
-There is a version hosted at [Clojars](https://clojars.org/rm-hull/infix).
+There is a version hosted at [Clojars](https://clojars.org/rm-hull/helpmate).
 For leiningen include a dependency in your `project.clj` file:
 
 ```clojure

@@ -40,7 +40,7 @@ There is a version hosted at [Clojars](https://clojars.org/rm-hull/infix).
 For leiningen include a dependency in your `project.clj` file:
 
 ```clojure
-[rm-hull/helpmate "0.1.0"]
+[rm-hull/helpmate "0.1.1"]
 ```
 
 ## API Documentation

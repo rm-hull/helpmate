@@ -10,14 +10,16 @@ HelpMate is a Clojure library for templating/emitting SGML-like content. It
 uses S-Expressions to represent elements, and maps to represent an element's
 attributes. HelpMate is a strained portmanteau of _Helpful HTML template_.
 
-All the current [HTML](https://developer.mozilla.org/en/docs/Web/HTML/Element) elements
+All the current [HTML](https://developer.mozilla.org/en/docs/Web/HTML/Element)
+and [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) elements
 are represented with doc-strings scraped from Mozilla Developer Network, the
 content of which is available under the terms of the [Creative Commons
-Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA), v2.5.
+Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/2.5/)
+(CC-BY-SA), v2.5.
 
 Planned additional definitions include
 
-  * [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element)
+  * [RDF](https://www.w3.org/TR/rdf-syntax-grammar/)
   * [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML/Element)
 
 Custom elements can be created by way of the `defelem` macro: this allows
@@ -162,15 +164,9 @@ Namespaces (both in element and attributes) are supported:
 
 ### Examples
 
-Shortly, the SVG tags will be defined much like the HTML elements, but in the
-meantime:
+Using the SVG tags from the `helpmate.svg` namespace:
 
 ```clojure
-(defelem svg)
-(defelem path)
-(defelem g)
-(defelem circle)
-
 (svg {:viewBox "0 0 95 50" :xmlns "http://www.w3.org/2000/svg"}
      (g {:stroke "green" :fill "white" :stroke-width 5}
         (circle {:cx 25 :cy 25 :r 15})
@@ -211,8 +207,6 @@ And another more substantial example:
 ```
 
 ![animate-SVG](https://rawgithub.com/rm-hull/helpmate/master/doc/animate.svg)
-
-
 
 ## References
 

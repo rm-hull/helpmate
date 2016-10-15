@@ -438,7 +438,7 @@
 (defelem meshPatch
   "TODO")
 
-(defelm meshRow
+(defelem meshRow
   "TODO")
 
 (defelem metadata

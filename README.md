@@ -146,10 +146,11 @@ appropriate (and actively used within the `helpmate.html` namespace). Other
 valid meta-data flags are:
 
  * `^:non-void` - denotes that the element _must_ have an end-tag, such as
-   `<div>` or `<script>` for example.
+   `<div>` or `<script>` for example. Non-void tags will never self-close.
  * `^:empty-tag` - signals that the element is expected to have no child
    elements (and will throw an exception if evaluated with children), such
-   as `<img>` or `<br>` elements.
+   as `<img>` or `<br>` elements. An empty tag implies that an element is
+   also void.
 
 ### XML Namespaces
 

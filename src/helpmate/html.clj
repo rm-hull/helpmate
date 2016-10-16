@@ -76,14 +76,14 @@
   optionally associates it with a hypertext link. This element is used only
   within a <map> element.")
 
-(defelem article
-  "[HTML5] The HTML <article> element represents a self-contained composition
-  in a document, page, application, or site, which is intended to be
-  independently distributable or reusable (e.g., in syndication). This could
-  be a forum post, a magazine or newspaper article, a blog entry, an object,
-  or any other independent item of content. Each <article> should be
-  identified, typically by including a heading (<h1>-<h6> element) as a child
-  of the <article> element.
+(defelem ^{:added "HTML5"} article
+  "The HTML <article> element represents a self-contained composition in a
+  document, page, application, or site, which is intended to be independently
+  distributable or reusable (e.g., in syndication). This could be a forum
+  post, a magazine or newspaper article, a blog entry, an object, or any other
+  independent item of content. Each <article> should be identified, typically
+  by including a heading (<h1>-<h6> element) as a child of the <article>
+  element.
 
     * When an <article> element is nested, the inner element represents an
       article related to the outer element. For example, the comments of a
@@ -97,25 +97,24 @@
       using the datetime attribute of a <time> element. Note that the pubdate
       attribute of <time> is no longer a part of the W3C HTML 5 standard.")
 
-(defelem aside
-  "[HTML5] The HTML <aside> element represents a section of the page with
-  content connected tangentially to the rest, which could be considered
-  separate from that content. These sections are often represented as sidebars
-  or inserts. They often contain the definitions on the sidebars, such as
-  definitions from the glossary; there may also be other types of information,
-  such as related advertisements; the biography of the author; web
-  applications; profile information or related links on the blog.
+(defelem ^{:added "HTML5"} aside
+  "The HTML <aside> element represents a section of the page with content
+  connected tangentially to the rest, which could be considered separate from
+  that content. These sections are often represented as sidebars or inserts.
+  They often contain the definitions on the sidebars, such as definitions from
+  the glossary; there may also be other types of information, such as related
+  advertisements; the biography of the author; web applications; profile
+  information or related links on the blog.
 
     * Do not use the <aside> element to tag parenthesized text, as this kind
       of text is considered part of the main flow.")
 
-(defelem audio
-  "[HTML5] The HTML <audio> element is used to embed sound content in
-  documents. It may contain one or more audio sources, represented using the
-  src attribute or the <source> element; the browser will choose the most
-  suitable one. Fallback content for browsers not supporting the <audio>
-  element can be added too, inside the opening and closing <audio></audio>
-  tags.
+(defelem ^{:added "HTML5"} audio
+  "The HTML <audio> element is used to embed sound content in documents. It may
+  contain one or more audio sources, represented using the src attribute or
+  the <source> element; the browser will choose the most suitable one.
+  Fallback content for browsers not supporting the <audio> element can be
+  added too, inside the opening and closing <audio></audio> tags.
 
   The most basic playback functionality can be made available using the
   controls attribute (see below); for more advanced usage, audio playback and
@@ -196,12 +195,12 @@
   The former behavior of the <font> element can be achieved, and even better
   controlled using the CSS Fonts properties.")
 
-(defelem bdi
-  "[HTML5] The HTML <bdi> Element (or Bi-Directional Isolation Element)
-  isolates a span of text that might be formatted in a different direction
-  from other text outside it. This element is useful when embedding text with
-  an unknown directionality, from a database for example, inside text with a
-  fixed directionality.
+(defelem ^{:added "HTML5"} bdi
+  "The HTML <bdi> Element (or Bi-Directional Isolation Element) isolates a span
+  of text that might be formatted in a different direction from other text
+  outside it. This element is useful when embedding text with an unknown
+  directionality, from a database for example, inside text with a fixed
+  directionality.
 
   Though the same visual effect can be achieved using the CSS rule
   unicode-bidi: isolate on a <span> or another text-formatting element, the
@@ -256,8 +255,8 @@
   <button> element in an HTML form, different browsers may submit different
   values. Use <input> to create buttons in an HTML form.")
 
-(defelem canvas
-  "[HTML5] The HTML <canvas> Element can be used to draw graphics via scripting
+(defelem ^{:added "HTML5"} canvas
+  "The HTML <canvas> Element can be used to draw graphics via scripting
   (usually JavaScript). For example, it can be used to draw graphs, make photo
   compositions or even perform animations. You may (and should) provide
   alternate content inside the <canvas> block. That content will be rendered
@@ -359,12 +358,12 @@
   translation. If the content is time- or date-related, the <time> must be
   used.")
 
-(defelem datalist
-  "[HTML5] The <datalist> tag specifies a list of pre-defined options for an
-  <input> element. The <datalist> tag is used to provide an \"autocomplete\"
-  feature on <input> elements. Users will see a drop-down list of pre-defined
-  options as they input data. Use the <input> element's list attribute to
-  bind it together with a <datalist> element. Example:
+(defelem ^{:added "HTML5"} datalist
+  "The <datalist> tag specifies a list of pre-defined options for an <input>
+  element. The <datalist> tag is used to provide an \"autocomplete\" feature
+  on <input> elements. Users will see a drop-down list of pre-defined options
+  as they input data. Use the <input> element's list attribute to bind it
+  together with a <datalist> element. Example:
 
     <input list=\"browsers\">
 
@@ -394,12 +393,12 @@
   been deleted from a document. This element is often (but need not be)
   rendered with strike-through text.")
 
-(defelem details
-  "[HTML5] The <details> tag specifies additional details that the user can
-  view or hide on demand. The <details> tag can be used to create an
-  interactive widget that the user can open and close. Any sort of content can
-  be put inside the <details> tag. The content of a <details> element should
-  not be visible unless the open attribute is set. Example:
+(defelem ^{:added "HTML5"} details
+  "The <details> tag specifies additional details that the user can view or
+  hide on demand. The <details> tag can be used to create an interactive
+  widget that the user can open and close. Any sort of content can be put
+  inside the <details> tag. The content of a <details> element should not be
+  visible unless the open attribute is set. Example:
 
     <details>
       <summary>Some details</summary>
@@ -410,8 +409,8 @@
   The heading can be clicked to view/hide the details.")
 
 (defelem dfn
-  "[HTML5] The HTML Definition Element (<dfn>) represents the defining instance
-   of a term.
+  "The HTML Definition Element (<dfn>) represents the defining instance of a
+  term.
 
      * The <dfn> element marks the term being defined; the definition of the
        term should be given by the surrounding <p>, <section> or definition
@@ -426,12 +425,12 @@
        - Otherwise, the text content of the <dfn> element is the term being
          defined.")
 
-(defelem ^:experimental dialog
-  "[Experimental] The HTML <dialog> element represents a dialog box or other
-  interactive component, such as an inspector or window. <form> elements can
-  be integrated within a dialog by specifying them with the attribute
-  method=\"dialog\". When such a form is submitted, the dialog is closed with
-  a returnValue attribute set to the value of the submit button used.
+(defelem ^{:added "HTML5"} ^:experimental dialog
+  "The HTML <dialog> element represents a dialog box or other interactive
+  component, such as an inspector or window. <form> elements can be integrated
+  within a dialog by specifying them with the attribute method=\"dialog\".
+  When such a form is submitted, the dialog is closed with a returnValue
+  attribute set to the value of the submit button used.
 
   The ::backdrop CSS pseudo-element can be used to style behind a <dialog>
   element, for example to dim inaccessible content whilst a modal dialog is
@@ -479,7 +478,7 @@
   but carries different meaning. Use the <strong> element to mark text that
   has greater importance than surrounding text.")
 
-(defelem embed
+(defelem ^{:added "HTML5"} embed
   "The HTML <embed> Element represents an integration point for an external
   application or interactive content (in other words, a plug-in). See other
   elements that are used for embedding content of various types include
@@ -499,7 +498,7 @@
       </fieldset>
     </form>")
 
-(defelem figcaption
+(defelem ^{:added "HTML5"} figcaption
   "The HTML <figcaption> element represents a caption or a legend associated
   with a figure or an illustration described by the rest of the data of the
   <figure> element which is its immediate ancestor which means <figcaption>
@@ -507,7 +506,7 @@
   Figcaption Element is optional; if not provided, then the parent figure
   element will have no caption.")
 
-(defelem figure
+(defelem ^{:added "HTML5"} figure
   "The HTML <figure> element represents self-contained content, frequently with
   a caption (<figcaption>), and is typically referenced as a single unit.
   While it is related to the main flow, its position is independent of the
@@ -539,7 +538,7 @@
   written using CSS only. The former behavior of the <font> element can be
   achieved, and even better controlled using the CSS Fonts CSS properties.")
 
-(defelem footer
+(defelem ^{:added "HTML5"} footer
   "The HTML <footer> element represents a footer for its nearest sectioning
   content or sectioning root element. A footer typically contains information
   about the author of the section, copyright data or links to related
@@ -588,7 +587,7 @@
 (defelem h5)
 (defelem h6)
 
-(defelem header
+(defelem ^{:added "HTML5"} header
   "The HTML <header> element represents a group of introductory or navigational
   aids. It may contain some heading elements but also other elements like a
   logo, wrapped section's header, a search form, and so on. Note: The <header>
@@ -650,7 +649,7 @@
   "The HTML <ins> Element (or HTML Inserted Text) HTML represents a range of
   text that has been added to a document.")
 
-(defelem ^:deprecated ^:html5 keygen
+(defelem ^:deprecated ^{:added "HTML5"} keygen
   "The HTML <keygen> element exists to facilitate generation of key material,
   and submission of the public key as part of an HTML form. This mechanism is
   designed for use with Web-based certificate management systems. It is
@@ -705,7 +704,7 @@
   relational framework for navigation. This Element is most used to link to
   style sheets.")
 
-(defelem main
+(defelem ^{:added "HTML5"} main
   "The HTML <main> element represents the main content of the <body> of a
   document or application. The main content area consists of content that is
   directly related to, or expands upon the central topic of a document or the
@@ -723,7 +722,7 @@
   "The HTML <map> element is used with <area> elements to define an image map
   (a clickable link area).")
 
-(defelem mark
+(defelem ^{:added "HTML5"} mark
   "The HTML Mark Element (<mark>) represents highlighted text, i.e., a run of
   text marked for reference purpose, due to its relevance in a particular
   context. For example it can be used in a page showing search results to
@@ -746,18 +745,18 @@
       of text of relevance to a different context.")
 
 (defelem ^:experimental menu
-  "[Experimental] The HTML <menu> element represents a group of commands that a
-  user can perform or activate. This includes both list menus, which might
-  appear across the top of a screen, as well as context menus, such as those
-  that might appear underneath a button after it has been clicked. Note: The
-  <menu> and <ul> elements both represent an unordered list of items. The key
+  "The HTML <menu> element represents a group of commands that a user can
+  perform or activate. This includes both list menus, which might appear
+  across the top of a screen, as well as context menus, such as those that
+  might appear underneath a button after it has been clicked. Note: The <menu>
+  and <ul> elements both represent an unordered list of items. The key
   difference is that <ul> primarily contains items for display, whilst <menu>
   is intended for interactive items, to act on.")
 
-(defelem ^:experimental menuitem
-  "[Experimental] The HTML <menuitem> element represents a command that a user
-  is able to invoke through a popup menu. This includes context menus, as well
-  as menus that might be attached to a menu button.
+(defelem ^{:added "HTML5"} ^:experimental menuitem
+  "The HTML <menuitem> element represents a command that a user is able to
+  invoke through a popup menu. This includes context menus, as well as menus
+  that might be attached to a menu button.
 
   A command can either be defined explicitly, with a textual label and optional
   icon to describe its appearance, or alternatively as an indirect command
@@ -786,20 +785,20 @@
     * If itemprop is set, it is user-defined metadata, transparent for the
       user-agent as the semantics of the metadata is user-specific.")
 
-(defelem meter
-  "[HTML5] The HTML <meter> Element represents either a scalar value within a
-   known range or a fractional value. Note: Unless the value attribute is
-   between 0 and 1 (inclusive), the min and max attributes should define the
-   range so that the value attribute's value is within it. Example:
+(defelem ^{:added "HTML5"} meter
+  "The HTML <meter> Element represents either a scalar value within a known
+  range or a fractional value. Note: Unless the value attribute is between 0
+  and 1 (inclusive), the min and max attributes should define the range so
+  that the value attribute's value is within it. Example:
 
-     <p>
-       Heat the oven to
-       <meter min=\"200\" max=\"500\" value=\"350\">
-         350 degrees
-       </meter>.
-     </p>")
+    <p>
+      Heat the oven to
+      <meter min=\"200\" max=\"500\" value=\"350\">
+        350 degrees
+      </meter>.
+    </p>")
 
-(defelem nav
+(defelem ^{:added "HTML5"} nav
   "The HTML <nav> element (HTML Navigation Element) represents a section of a
   page that links to other pages or to parts within the page: a section with
   navigation links.
@@ -876,7 +875,7 @@
   representing an item within a <select>, an <optgroup> or a <datalist> HTML5
   element.")
 
-(defelem output
+(defelem ^{:added "HTML5"} output
   "The HTML <output> element represents the result of a calculation or user
   action. Example:
 
@@ -908,7 +907,7 @@
   contained '<' characters as '&lt;' to make sure enclosed code is not
   interpreted as markup.")
 
-(defelem progress
+(defelem ^{:added "HTML5"} progress
   "[HTML5] The HTML <progress> Element is used to view the completion progress
   of a task. While the specifics of how it's displayed is left up to the
   browser developer, it's typically displayed as a progress bar. Javascript
@@ -931,7 +930,7 @@
       </q>.
     </p>")
 
-(defelem rp
+(defelem ^{:added "HTML5"} rp
   "The HTML <rp> element is used to provide fall-back parenthesis for browsers
   non-supporting ruby annotations. Ruby annotations are for showing
   pronunciation of East Asian characters, like using Japanese furigana or
@@ -939,7 +938,7 @@
   of <ruby> element support its content has what should be displayed in order
   to indicate the presence of a ruby annotation, usually parentheses.")
 
-(defelem rt
+(defelem ^{:added "HTML5"} rt
   "The HTML <rt> Element embraces pronunciation of characters presented in a
   ruby annotations, which are used to describe the pronunciation of East Asian
   characters. This element is always used inside a <ruby> element.")
@@ -949,7 +948,7 @@
   in a ruby of <rb> elements used inside of <ruby> element. <rb> elements can
   have both pronunciation (<rt>) and semantic (<rtc>) annotations.")
 
-(defelem ruby
+(defelem ^{:added "HTML5"} ruby
   "The HTML <ruby> Element represents a ruby annotation. Ruby annotations are
   for showing pronunciation of East Asian characters. Example:
 
@@ -976,7 +975,7 @@
   defer attributes, as well as inline scripts, are fetched and executed
   immediately, before the browser continues to parse the page.")
 
-(defelem section
+(defelem ^{:added "HTML5"} section
   "The HTML <section> element represents a generic section of a document, i.e.,
   a thematic grouping of content, typically with a heading. Each <section>
   should be identified, typically by including a heading (<h1>-<h6> element)
@@ -1008,7 +1007,7 @@
   represent side-comments and small print, including copyright and legal text,
   independent of its styled presentation.")
 
-(defelem source
+(defelem ^{:added "HTML5"} source
   "The HTML <source> element specifies multiple media resources for either the
   <picture>, the <audio> or the <video> element. It is an empty element. It is
   commonly used to serve the same media content in multiple formats supported
@@ -1082,7 +1081,7 @@
       the vertical-align property with the sub value will achieve the same
       effect.")
 
-(defelem summary
+(defelem ^{:added "HTML5"} summary
   "The HTML summary element (<summary>) is used as a summary, caption, or
   legend for the content of a <details> element. Note: (1) If the <summary>
   element is omitted, the heading \"details\" will be used. (2) The default
@@ -1187,7 +1186,7 @@
   "The HTML element table row <tr> defines a row of cells in a table. Those can
   be a mix of <td> and <th> elements.")
 
-(defelem track
+(defelem ^{:added "HTML5"} track
   "The HTML <track> element is used as a child of the media elements—<audio>
   and <video>. It lets you specify timed text tracks (or time-based data), for
   example to automatically handle subtitles. The tracks are formatted in
@@ -1232,13 +1231,13 @@
   "The HTML Variable Element (<var>) represents a variable in a mathematical
   expression or a programming context.")
 
-(defelem video
+(defelem ^{:added "HTML5"} video
   "Use the  HTML <video> element to embed video content in a document. The
   video element contains one or more video sources. To specify a video source,
   use either the src attribute or the <source> element; the browser will
   choose the most suitable one.")
 
-(defelem ^:html5 ^:empty-tag wbr
+(defelem ^{:added "HTML5"} ^:empty-tag wbr
   "The HTML element word break opportunity <wbr> represents a position within
   text where the browser may optionally break a line, though its line-breaking
   rules would not otherwise create a break at that location.

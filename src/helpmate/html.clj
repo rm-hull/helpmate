@@ -650,6 +650,24 @@
   "The HTML <ins> Element (or HTML Inserted Text) HTML represents a range of
   text that has been added to a document.")
 
+(defelem ^:deprecated ^:html5 keygen
+  "The HTML <keygen> element exists to facilitate generation of key material,
+  and submission of the public key as part of an HTML form. This mechanism is
+  designed for use with Web-based certificate management systems. It is
+  expected that the <keygen> element will be used in an HTML form along with
+  other information needed to construct a certificate request, and that the
+  result of the process will be a signed certificate. Example:
+
+    <form action=\"demo_keygen.asp\" method=\"get\">
+      Username: <input type=\"text\" name=\"usr_name\">
+      Encryption: <keygen name=\"security\">
+      <input type=\"submit\">
+    </form>
+
+  Note: There is currently discussion among Web browser makers whether to keep
+  this feature or not. Until a decision is reached, it is better to continue
+  to consider this feature as deprecated and going away.")
+
 (defelem kbd
   "The HTML Keyboard Input Element (<kbd>) represents user input and produces
   an inline element displayed in the browser's default monospace font.")

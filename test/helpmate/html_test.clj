@@ -52,3 +52,9 @@
                        (li x))))
                (div :#main)))))
 
+(deftest check-empty-tags
+  (for [tag '[area base br col embed hr
+              img input keygen link meta
+              param source track wbr]]
+    (is (thrown-with-msg? IllegalArgumentException #"Element '.*' cannot accept children")
+        (tag "hello"))))

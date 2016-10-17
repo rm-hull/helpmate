@@ -71,7 +71,7 @@
   plug-ins/installations to work. The <applet> tag is not supported in HTML5.
   Use <embed> or <object> instead.")
 
-(defelem area
+(defelem ^:empty-tag area
   "The HTML <area> element defines a hot-spot region on an image, and
   optionally associates it with a hypertext link. This element is used only
   within a <map> element.")
@@ -168,7 +168,7 @@
       property font-weight with bold value would be a better choice for
       making text bold.")
 
-(defelem base
+(defelem ^:empty-tag base
   "The HTML <base> element specifies the base URL to use for all relative URLs
   contained within a document. There can be only one <base> element in a
   document. The base URL of a document can be queried from a script using
@@ -320,7 +320,7 @@
   default, it is displayed in the browser's default monospace font. This tag
   is not deprecated, but it is possible to achieve richer effect with CSS.")
 
-(defelem col
+(defelem ^:empty-tag col
   "The HTML Table Column Element (<col>) defines a column within a table and is
   used for defining common semantics on all common cells. It is generally
   found within a <colgroup> element. This element allows styling columns using
@@ -478,7 +478,7 @@
   but carries different meaning. Use the <strong> element to mark text that
   has greater importance than surrounding text.")
 
-(defelem ^{:added "HTML5"} embed
+(defelem ^:empty-tag ^{:added "HTML5"} embed
   "The HTML <embed> Element represents an integration point for an external
   application or interactive content (in other words, a plug-in). See other
   elements that are used for embedding content of various types include
@@ -640,7 +640,7 @@
   these cases, the browser may replace the image with the text defined in this
   element's alt attribute.")
 
-(defelem input
+(defelem ^:empty-tag input
   "The HTML element <input> is used to create interactive controls for
   web-based forms in order to accept data from the user. How an <input> works
   varies considerably depending on the value of its type attribute.")
@@ -649,7 +649,7 @@
   "The HTML <ins> Element (or HTML Inserted Text) HTML represents a range of
   text that has been added to a document.")
 
-(defelem ^:deprecated ^{:added "HTML5"} keygen
+(defelem ^:deprecated ^{:added "HTML5"} ^:empty-tag keygen
   "The HTML <keygen> element exists to facilitate generation of key material,
   and submission of the public key as part of an HTML form. This mechanism is
   designed for use with Web-based certificate management systems. It is
@@ -895,7 +895,7 @@
   paragraphs, use the CSS margin property. Do not insert empty paragraphs
   elements or <br> between them.")
 
-(defelem param
+(defelem ^:empty-tag param
   "The HTML <param> Element (or HTML Parameter Element) defines parameters
   for <object>.")
 
@@ -1007,7 +1007,7 @@
   represent side-comments and small print, including copyright and legal text,
   independent of its styled presentation.")
 
-(defelem ^{:added "HTML5"} source
+(defelem ^{:added "HTML5"} ^:empty-tag source
   "The HTML <source> element specifies multiple media resources for either the
   <picture>, the <audio> or the <video> element. It is an empty element. It is
   commonly used to serve the same media content in multiple formats supported
@@ -1186,7 +1186,7 @@
   "The HTML element table row <tr> defines a row of cells in a table. Those can
   be a mix of <td> and <th> elements.")
 
-(defelem ^{:added "HTML5"} track
+(defelem ^{:added "HTML5"} ^:empty-tag track
   "The HTML <track> element is used as a child of the media elements—<audio>
   and <video>. It lets you specify timed text tracks (or time-based data), for
   example to automatically handle subtitles. The tracks are formatted in

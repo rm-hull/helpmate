@@ -1,18 +1,27 @@
 (defproject rm-hull/helpmate "0.1.2-SNAPSHOT"
-  :description "A Clojure library for emitting SGML (HTML,SVG,XML) fragments"
+  :description "A Clojure library for templating/emitting SGML (HTML,SVG,XML) fragments."
   :url "https://github.com/rm-hull/helpmate"
   :license {
     :name "The MIT License (MIT)"
     :url "http://opensource.org/licenses/MIT"}
   :dependencies [
     [org.flatland/useful "0.11.5"]]
-  :scm {:url "git@github.com:rm-hull/helpmate.git"}
+  :scm {:url "https://github.com/rm-hull/helpmate.git"}
   :vcs :git
   :source-paths ["src"]
   :jar-exclusions [#"(?:^|/).git"]
   :codox {
     :source-paths ["src"]
     :output-path "doc/api"
+    :doc-files [
+      "doc/introduction.md",
+      "doc/basic-usage.md",
+      "doc/specifying-attributes.md"
+      "doc/creating-custom-elements.md"
+      "doc/xml-namespaces.md"
+      "doc/examples.md"
+      "doc/references.md"
+      "LICENSE.md"]
     :source-uri "http://github.com/rm-hull/helpmate/blob/master/{filepath}#L{line}"  }
   :min-lein-version "2.7.1"
   :profiles {

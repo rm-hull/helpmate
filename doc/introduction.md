@@ -1,8 +1,9 @@
 # Introduction
 
-HelpMate is a Clojure library for templating/emitting SGML-like content. It
-uses S-Expressions to represent elements, and maps to represent an element's
-attributes. HelpMate is a strained portmanteau of _Helpful HTML template_.
+HelpMate is a Clojure/ClojureScript library for templating/emitting SGML-like
+content. It uses S-Expressions to represent elements, and maps to represent an
+element's attributes. HelpMate is a strained portmanteau of _Helpful HTML
+template_.
 
 All the current [HTML](https://developer.mozilla.org/en/docs/Web/HTML/Element)
 and [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) elements

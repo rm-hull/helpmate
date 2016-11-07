@@ -6,9 +6,10 @@
 [![Clojars Project](https://img.shields.io/clojars/v/rm-hull/helpmate.svg)](https://clojars.org/rm-hull/helpmate)
 [![Maintenance](https://img.shields.io/maintenance/yes/2016.svg?maxAge=2592000)]()
 
-HelpMate is a Clojure library for templating/emitting SGML-like content. It
-uses S-Expressions to represent elements, and maps to represent an element's
-attributes. HelpMate is a strained portmanteau of _Helpful HTML template_.
+HelpMate is a Clojure/ClojureScript library for templating/emitting SGML-like
+content. It uses S-Expressions to represent elements, and maps to represent an
+element's attributes. HelpMate is a strained portmanteau of _Helpful HTML
+template_.
 
 All the current [HTML](https://developer.mozilla.org/en/docs/Web/HTML/Element)
 and [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) elements
@@ -42,7 +43,7 @@ There is a version hosted at [Clojars](https://clojars.org/rm-hull/helpmate).
 For leiningen include a dependency in your `project.clj` file:
 
 ```clojure
-[rm-hull/helpmate "0.1.2"]
+[rm-hull/helpmate "0.1.3"]
 ```
 
 ## API Documentation

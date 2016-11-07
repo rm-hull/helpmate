@@ -1,4 +1,4 @@
-(defproject rm-hull/helpmate "0.1.2-SNAPSHOT"
+(defproject rm-hull/helpmate "0.1.2"
   :description "A Clojure library for templating/emitting SGML (HTML,SVG,XML) fragments."
   :url "https://github.com/rm-hull/helpmate"
   :license {

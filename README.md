@@ -4,7 +4,7 @@
 [![Dependencies Status](https://jarkeeper.com/rm-hull/helpmate/status.svg)](https://jarkeeper.com/rm-hull/helpmate)
 [![Downloads](https://jarkeeper.com/rm-hull/helpmate/downloads.svg)](https://jarkeeper.com/rm-hull/helpmate)
 [![Clojars Project](https://img.shields.io/clojars/v/rm-hull/helpmate.svg)](https://clojars.org/rm-hull/helpmate)
-[![Maintenance](https://img.shields.io/maintenance/yes/2016.svg?maxAge=2592000)]()
+[![Maintenance](https://img.shields.io/maintenance/yes/2017.svg?maxAge=2592000)]()
 
 HelpMate is a Clojure/ClojureScript library for templating/emitting SGML-like
 content. It uses S-Expressions to represent elements, and maps to represent an

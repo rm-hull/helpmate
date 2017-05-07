@@ -1,10 +1,6 @@
 language: clojure
 lein: 2.7.1
-node_js:
-  - node
 before_script:
-  - npm install -g eclint
-  - eclint check .* * src/** test/**
   - lein install
   - lein cljfmt check
 script:

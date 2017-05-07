@@ -83,7 +83,7 @@ Attributes can be supplied as a map of key/value pairs:
 
 Alternatively, the braces can be omitted, as long as there are pairs of keys
 and values (and in which case, the keys _must_ be Clojure keywords and the
-valeus _must_ be string, number or nil):
+values _must_ be string, number or nil):
 
 ```clojure
 (div :id "main" :data-target "#nav"

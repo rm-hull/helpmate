@@ -1,4 +1,4 @@
-(defproject rm-hull/helpmate "0.1.3"
+(defproject rm-hull/helpmate "0.1.4"
   :description "A Clojure/clojurescript library for templating/emitting SGML (HTML,SVG,XML) fragments."
   :url "https://github.com/rm-hull/helpmate"
   :license {
@@ -31,8 +31,8 @@
       :plugins [
         [lein-codox "0.10.3"]
         [lein-cljfmt "0.5.7"]
-        [lein-cloverage "1.0.9"]]
+        [lein-cloverage "1.0.10"]]
       :dependencies [
-        [org.clojure/clojure "1.8.0"]
+        [org.clojure/clojure "1.9.0"]
         [google-analytics-codox-theme "0.1.0"]]}})
 

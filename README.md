@@ -43,7 +43,7 @@ There is a version hosted at [Clojars](https://clojars.org/rm-hull/helpmate).
 For leiningen include a dependency in your `project.clj` file:
 
 ```clojure
-[rm-hull/helpmate "0.1.3"]
+[rm-hull/helpmate "0.1.4"]
 ```
 
 ## API Documentation

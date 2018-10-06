@@ -1,8 +1,8 @@
 # HelpMate
 [![Build Status](https://travis-ci.org/rm-hull/helpmate.svg?branch=master)](http://travis-ci.org/rm-hull/helpmate)
 [![Coverage Status](https://coveralls.io/repos/rm-hull/helpmate/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/helpmate?branch=master)
-[![Dependencies Status](https://jarkeeper.com/rm-hull/helpmate/status.svg)](https://jarkeeper.com/rm-hull/helpmate)
-[![Downloads](https://jarkeeper.com/rm-hull/helpmate/downloads.svg)](https://jarkeeper.com/rm-hull/helpmate)
+[![Dependencies Status](https://versions.deps.co/rm-hull/helpmate/status.svg)](https://versions.deps.co/rm-hull/helpmate)
+[![Downloads](https://versions.deps.co/rm-hull/helpmate/downloads.svg)](https://versions.deps.co/rm-hull/helpmate)
 [![Clojars Project](https://img.shields.io/clojars/v/rm-hull/helpmate.svg)](https://clojars.org/rm-hull/helpmate)
 [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?maxAge=2592000)]()
 

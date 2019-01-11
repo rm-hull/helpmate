@@ -5,7 +5,7 @@
     :name "The MIT License (MIT)"
     :url "http://opensource.org/licenses/MIT"}
   :dependencies [
-    [org.flatland/useful "0.11.5"]]
+    [org.flatland/useful "0.11.6"]]
   :scm {:url "https://github.com/rm-hull/helpmate.git"}
   :vcs :git
   :source-paths ["src"]
@@ -29,10 +29,10 @@
     :dev {
       :global-vars {*warn-on-reflection* true}
       :plugins [
-        [lein-codox "0.10.3"]
-        [lein-cljfmt "0.5.7"]
-        [lein-cloverage "1.0.10"]]
+        [lein-codox "0.10.5"]
+        [lein-cljfmt "0.6.3"]
+        [lein-cloverage "1.0.13"]]
       :dependencies [
-        [org.clojure/clojure "1.9.0"]
+        [org.clojure/clojure "1.10.0"]
         [google-analytics-codox-theme "0.1.0"]]}})
 

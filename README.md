@@ -1,10 +1,11 @@
 # HelpMate
-[![Build Status](https://travis-ci.org/rm-hull/helpmate.svg?branch=master)](http://travis-ci.org/rm-hull/helpmate)
-[![Coverage Status](https://coveralls.io/repos/rm-hull/helpmate/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/helpmate?branch=master)
+
+[![Build Status](https://github.com/rm-hull/helpmate/actions/workflows/clojure.yml/badge.svg)](https://github.com/rm-hull/helpmate/actions/workflows/clojure.yml)
+[![Coverage Status](https://coveralls.io/repos/rm-hull/helpmate/badge.svg?branch=main)](https://coveralls.io/r/rm-hull/helpmate?branch=main)
 [![Dependencies Status](https://versions.deps.co/rm-hull/helpmate/status.svg)](https://versions.deps.co/rm-hull/helpmate)
 [![Downloads](https://versions.deps.co/rm-hull/helpmate/downloads.svg)](https://versions.deps.co/rm-hull/helpmate)
 [![Clojars Project](https://img.shields.io/clojars/v/rm-hull/helpmate.svg)](https://clojars.org/rm-hull/helpmate)
-[![Maintenance](https://img.shields.io/maintenance/yes/2019.svg?maxAge=2592000)]()
+[![Maintenance](https://img.shields.io/maintenance/yes/2023.svg?maxAge=2592000)]()
 
 HelpMate is a Clojure/ClojureScript library for templating/emitting SGML-like
 content. It uses S-Expressions to represent elements, and maps to represent an
@@ -20,8 +21,8 @@ Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/2.5/)
 
 Planned additional definitions include
 
-  * [RDF](https://www.w3.org/TR/rdf-syntax-grammar/)
-  * [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML/Element)
+- [RDF](https://www.w3.org/TR/rdf-syntax-grammar/)
+- [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML/Element)
 
 Custom elements can be created by way of the `defelem` macro: this allows
 arbitrary SGML tags to be represented in regular Clojure code, intersperced
@@ -63,6 +64,7 @@ doc-strings:
      (strong "world")))
 ;=> <div><p>Hello <strong>world</strong></p></div>
 ```
+
 Convention dictates that attributes are specified first, then children. Child elements
 may be given in SEQable collection, or as varargs, and can be arbitrarily nested; thus,
 they can be combined into normal Clojure code, as per the opening example.
@@ -146,12 +148,12 @@ Meta-data is also respected, and use of `^:deprecated` is encouraged where
 appropriate (and actively used within the `helpmate.html` namespace). Other
 valid meta-data flags are:
 
- * `^:non-void` - denotes that the element _must_ have an end-tag, such as
-   `<div>` or `<script>` for example. Non-void tags will never self-close.
- * `^:empty-tag` - signals that the element is expected to have no child
-   elements (and will throw an exception if evaluated with children), such
-   as `<img>` or `<br>` elements. An empty tag implies that an element is
-   also void.
+- `^:non-void` - denotes that the element _must_ have an end-tag, such as
+  `<div>` or `<script>` for example. Non-void tags will never self-close.
+- `^:empty-tag` - signals that the element is expected to have no child
+  elements (and will throw an exception if evaluated with children), such
+  as `<img>` or `<br>` elements. An empty tag implies that an element is
+  also void.
 
 ### XML Namespaces
 
@@ -179,7 +181,7 @@ Using the SVG tags from the `helpmate.svg` namespace:
 
 produces:
 
-![example-SVG](https://rawgithub.com/rm-hull/helpmate/master/doc/example.svg)
+![example-SVG](https://rawgithub.com/rm-hull/helpmate/main/doc/example.svg)
 
 And another more substantial example:
 
@@ -208,20 +210,20 @@ And another more substantial example:
                             (mpath :xlink:href "#theMotionPath")))))
 ```
 
-![animate-SVG](https://rawgithub.com/rm-hull/helpmate/master/doc/animate.svg)
+![animate-SVG](https://rawgithub.com/rm-hull/helpmate/main/doc/animate.svg)
 
 ## References
 
-* https://developer.mozilla.org/en/docs/Web/HTML/Element
-* https://developer.mozilla.org/en-US/docs/Web/SVG/Element
+- https://developer.mozilla.org/en/docs/Web/HTML/Element
+- https://developer.mozilla.org/en-US/docs/Web/SVG/Element
 
 ## Attribution
 
-  * Docstring content scraped from Mozilla Developer Network, the
-    content of which is available under the terms of the [Creative Commons
-    Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA), v2.5.
-  * Code examples / inspiration from https://github.com/weavejester/hiccup.
-  * SVG examples transcribed from Mozilla Developer Network
+- Docstring content scraped from Mozilla Developer Network, the
+  content of which is available under the terms of the [Creative Commons
+  Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA), v2.5.
+- Code examples / inspiration from https://github.com/weavejester/hiccup.
+- SVG examples transcribed from Mozilla Developer Network
 
 ## License
 

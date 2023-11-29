@@ -22,17 +22,17 @@
       "doc/examples.md"
       "doc/references.md"
       "LICENSE.md"]
-    :source-uri "http://github.com/rm-hull/helpmate/blob/master/{filepath}#L{line}"
+    :source-uri "http://github.com/rm-hull/helpmate/blob/main/{filepath}#L{line}"
     :themes [:default [:google-analytics {:tracking-code "UA-39680853-8" }]]}
   :min-lein-version "2.7.1"
   :profiles {
     :dev {
       :global-vars {*warn-on-reflection* true}
       :plugins [
-        [lein-codox "0.10.5"]
-        [lein-cljfmt "0.6.3"]
-        [lein-cloverage "1.0.13"]]
+        [lein-codox "0.10.8"]
+        [lein-cljfmt "0.9.2"]
+        [lein-cloverage "1.2.4"]]
       :dependencies [
-        [org.clojure/clojure "1.10.0"]
+        [org.clojure/clojure "1.11.1"]
         [google-analytics-codox-theme "0.1.0"]]}})
 

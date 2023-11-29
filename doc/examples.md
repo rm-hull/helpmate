@@ -13,7 +13,7 @@ Using the SVG tags from the `helpmate.svg` namespace:
 
 produces:
 
-![example-SVG](https://rawgithub.com/rm-hull/helpmate/master/doc/example.svg)
+![example-SVG](https://rawgithub.com/rm-hull/helpmate/main/doc/example.svg)
 
 And another more substantial example:
 
@@ -42,5 +42,4 @@ And another more substantial example:
                             (mpath :xlink:href "#theMotionPath")))))
 ```
 
-![animate-SVG](https://rawgithub.com/rm-hull/helpmate/master/doc/animate.svg)
-
+![animate-SVG](https://rawgithub.com/rm-hull/helpmate/main/doc/animate.svg)
